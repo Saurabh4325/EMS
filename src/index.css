@@ -2,7 +2,13 @@
 
 * {
   
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   color: #fff;
-  /* background-color: #000; */
+}
+body{
+  background-color: #111;
+}
+
+#taskList::-webkit-scrollbar {
+  display: none;
 }
