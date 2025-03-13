@@ -9,8 +9,8 @@ const Login = ({handleLogin}) => {
     const submitHandler = (e)=>{
       e.preventDefault();
       handleLogin(email,password)
-      setEmail('')
-      setPassword('')
+      // setEmail('')
+      // setPassword('')
     }
   return (
     <div className='flex h-screen w-screen items-center justify-center'>
