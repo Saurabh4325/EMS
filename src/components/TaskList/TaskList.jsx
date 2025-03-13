@@ -1,51 +1,28 @@
 import React from 'react'
+import AcceptTask from './AcceptTask'
+import NewTask from './NewTask'
+import CompleteTask from './CompleteTask'
+import FailedTask from './FailedTask'
 
-const TaskList = () => {
+
+const TaskList = ({ data }) => {
   return (
-    <div id='taskList' className='px-5 h-[55%] flex justify-start gap-5 items-center  py-5 bg-[#c60000]  mt-10 flex-nowrap overflow-x-auto'>
-      <div className='flex shrink-0 h-full bg-red-400 rounded-xl w-[300px]'>
-            <div className='flex justify-between  p-3'>
-    
-                <h3 className='bg-amber-700 w-full h-7'>High</h3>
-                <h4>20 Feb 204</h4>
-            
-            </div>
-                <h2 className='mt-5 text-xl font-semibold text-xl'>Make a youtube video</h2>
-                <p className='text-sm '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt error eveniet in voluptates minima sunt.</p>
-      </div>
-      <div className='flex shrink-0 h-full bg-red-400 rounded-xl w-[300px]'>
-            <div className='flex justify-between  p-3'>
-    
-                <h3 className='bg-amber-700 w-full h-7'>High</h3>
-                <h4>20 Feb 204</h4>
-            
-            </div>
-                <h2 className='mt-5 text-xl font-semibold text-xl'>Make a youtube video</h2>
-                <p className='text-sm '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt error eveniet in voluptates minima sunt.</p>
-      </div>
-      <div className='flex shrink-0 h-full bg-red-400 rounded-xl w-[300px]'>
-            <div className='flex justify-between  p-3'>
-    
-                <h3 className='bg-amber-700 w-full h-7'>High</h3>
-                <h4>20 Feb 204</h4>
-            
-            </div>
-                <h2 className='mt-5 text-xl font-semibold text-xl'>Make a youtube video</h2>
-                <p className='text-sm '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt error eveniet in voluptates minima sunt.</p>
-      </div>
-      <div className='flex shrink-0 h-full bg-red-400 rounded-xl w-[300px]'>
-            <div className='flex justify-between  p-3'>
-    
-                <h3 className='bg-amber-700 w-full h-7'>High</h3>
-                <h4>20 Feb 204</h4>
-            
-            </div>
-                <h2 className='mt-5 text-xl font-semibold text-xl'>Make a youtube video</h2>
-                <p className='text-sm '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt error eveniet in voluptates minima sunt.</p>
-      </div>
-    
+    <div id='tasklist' className='h-[50%] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full py-1 mt-16'>
+      {data.tasks.map((elem, index) => {
+        if (elem.active) {
+          return <AcceptTask key={index} data={elem} />
+        }
+        if (elem.newTask) {
+          return <NewTask key={index} data={elem} />
+        }
+        if (elem.completed) {
+          return <CompleteTask key={index} data={elem} />
+        }
+        if (elem.failed) {
+          return <FailedTask key={index} data={elem} />
+        }
+      })}
     </div>
-
   )
 }
 

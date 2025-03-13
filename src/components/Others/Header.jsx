@@ -3,7 +3,8 @@ import React from 'react'
 const Header = ({changeUser}) => {
   const logOutUser = () =>{
     localStorage.setItem('loggedInUser','')
-    changeUser('')
+    localStorage.removeItem('loggedInUser')
+    changeUser(null)
   }
   return (
     <div>
